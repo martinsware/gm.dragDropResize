@@ -1,0 +1,30 @@
+/* Styles go here */
+
+.gm-image-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.gm-image-list > div {
+  height: 50px;
+  width: 50px;
+}
+
+.gm-drag-element {
+  opacity: 0.3;
+}
+
+.gm-dragging {
+  background-color: lightgrey;
+}
+
+.gm-drag-handle {
+  cursor: grab;
+}
+
+.panel.gm-dropping {
+  box-shadow: 0px 0px 2px black;
+}

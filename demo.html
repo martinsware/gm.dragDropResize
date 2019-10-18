@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css" />
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css" />
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+  <script src="https://code.angularjs.org/1.5.3/angular.js"></script>
+
+
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="gm.dragDropResize.js"></script>
+  <script src="script.js"></script>
+
+  <style>
+    div[resizable] {
+      border: 1px solid Black;
+      width: 150px;
+      height: 100px;
+    }
+
+    .enter {
+      background-color: #efefef;
+    }
+
+    #mainDrag {
+      border: #00ffff 1px solid;
+
+      width: 1000px;
+      height: 800px;
+    }
+  </style>
+</head>
+
+<body ng-app='app' class='container-fluid h-100'>
+  <div class="row no-gutters h-100">
+
+    <div class='col-auto bg-light' gm-on-drop='getDropHandler(categories[0])'>
+      <div class='gm-image-list'>
+        <div ng-repeat='item in categories[0].items'
+          gm-draggable='{ category: categories[0], item: item }'>
+          <div style="background-image:url('https://picsum.photos/1000/1000?random={{item.element}}');background-size:contain;width: 100%;
+          height: 100%;
+          background-size: cover;
+          background-position: center;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col" ng-controller="myCtrl">
+      <div id="mainDrag" gm-on-drop='getDropHandler(categories[1])'>
+        <div gm-draggable='{ category: categories[1], item: item }' ng-repeat='item in categories[1].items' resizable
+          style="position:absolute;left:{{item.pos_x}}px; top:{{item.pos_y}}px;height:{{item.height}}px;width:{{item.width}}px">
+          <div style="background-image:url('https://picsum.photos/1000/1000?random={{item.element}}');background-size:contain;width: 100%;
+          height: 100%;
+          background-size: cover;
+          background-position: center;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
